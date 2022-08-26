@@ -2,7 +2,7 @@ import { useState } from "react"
 import axios from "axios"
 import List from "./List"
 
-const api = "https://react-todolist-heroku.herokuapp.com/"
+const api = "https://react-todolist-heroku.herokuapp.com//lists/"
 
 const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, active }) => {
     let [edit, setEdit] = useState(false)

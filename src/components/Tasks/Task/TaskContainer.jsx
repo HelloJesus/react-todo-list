@@ -3,7 +3,7 @@ import "./task.css"
 import Task from "./Task"
 import axios from "axios"
 
-const api = "https://react-todolist-heroku.herokuapp.com/"
+const api = "https://react-todolist-heroku.herokuapp.com/tasks/"
 
 const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
