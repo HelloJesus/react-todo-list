@@ -17,11 +17,11 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fake-json": "json-server data/db.json --watch"
+    "server": "json-server --watch data/db.json --port 5000"
   },
   "eslintConfig": {
     "extends": [

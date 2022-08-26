@@ -3,6 +3,8 @@ import "./task.css"
 import Task from "./Task"
 import axios from "axios"
 
+const api = "http://localhost:5000/tasks/"
+
 const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
     let [edit, setEdit] = useState(false)
@@ -23,7 +25,7 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
             }
         }
 
-        axios.patch('http://localhost:3000/tasks/' + id, {
+        axios.patch(api + id, {
             text: text,
             isCompleted: isCompleted
         }).then(() => {
@@ -40,7 +42,7 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     }
 
     const deleteTask = (id) => {
-        axios.delete('http://localhost:3000/tasks/' + id).then(() => {
+        axios.delete(api + id).then(() => {
             setRemoveTask(id, item.list)
         }).catch(() => {
             alert("Не удалось удалить задачу")

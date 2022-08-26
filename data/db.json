@@ -39,21 +39,6 @@
       "title": "Travel",
       "colorId": 3,
       "id": 8
-    },
-    {
-      "title": "hgg6yuiyuiuyiyuiuysdfwtr23t4thygsgsdfgredergf34wfsdgfsg",
-      "colorId": 3,
-      "id": 9
-    },
-    {
-      "title": "56u56u",
-      "colorId": 3,
-      "id": 10
-    },
-    {
-      "title": "56u56u",
-      "colorId": 5,
-      "id": 11
     }
   ],
   "tasks": [
@@ -172,42 +157,6 @@
       "id": 61
     },
     {
-      "listId": 9,
-      "text": "tytryfdfdw",
-      "isCompleted": true,
-      "id": 62
-    },
-    {
-      "listId": 9,
-      "text": "fewfwef",
-      "isCompleted": false,
-      "id": 63
-    },
-    {
-      "listId": 9,
-      "text": "4et324te4rt",
-      "isCompleted": false,
-      "id": 64
-    },
-    {
-      "listId": 9,
-      "text": "4444",
-      "isCompleted": true,
-      "id": 66
-    },
-    {
-      "listId": 9,
-      "text": "346344",
-      "isCompleted": false,
-      "id": 69
-    },
-    {
-      "listId": 9,
-      "text": "345ertyert",
-      "isCompleted": false,
-      "id": 70
-    },
-    {
       "listId": 1,
       "text": "кпукп",
       "isCompleted": false,
@@ -230,24 +179,6 @@
       "text": "wwfwef",
       "isCompleted": true,
       "id": 98
-    },
-    {
-      "listId": 1,
-      "text": "fefefw",
-      "isCompleted": false,
-      "id": 99
-    },
-    {
-      "listId": 1,
-      "text": "gutyjtyj",
-      "isCompleted": false,
-      "id": 100
-    },
-    {
-      "listId": 1,
-      "text": "5u56u56",
-      "isCompleted": false,
-      "id": 101
     }
   ],
   "colors": [

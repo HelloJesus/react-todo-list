@@ -2,6 +2,8 @@ import { useState } from "react"
 import axios from "axios"
 import List from "./List"
 
+const api = "http://localhost:5000/lists/"
+
 const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, active }) => {
     let [edit, setEdit] = useState(false)
     let [visible, setVisible] = useState(false)
@@ -19,7 +21,7 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
 
     const deleteList = (evt, id) => {
         evt.stopPropagation()
-        axios.delete('http://localhost:3000/lists/' + id).then(() => {
+        axios.delete(api + id).then(() => {
             setRemoveList(id)
         }).catch(() => {
             alert('Не удалось удалить категорию')
@@ -40,7 +42,7 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
 
         const prevTitle = item.title
         setTitle(title)
-        axios.patch('http://localhost:3000/lists/' + id, {
+        axios.patch(api + id, {
             title: title,
         }).then(() => {
             setUpdateLists(title, id)

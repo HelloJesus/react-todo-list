@@ -6,6 +6,8 @@ import Lists from './components/Lists/Lists';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
+const api = "http://localhost:5000/"
+
 function App() {
   let [lists, setLists] = useState(null)
   let [colors, setColors] = useState(null)
@@ -16,13 +18,13 @@ function App() {
   let location = useLocation();
 
   useEffect(() => {
-    axios.get('http://localhost:3000/lists?_expand=color&_embed=tasks').then((res) => {
+    axios.get(api + 'lists?_expand=color&_embed=tasks').then((res) => {
       setLists(res.data)
     })
-    axios.get('http://localhost:3000/colors').then((res) => {
+    axios.get(api + 'colors').then((res) => {
       setColors(res.data)
     })
-    axios.get('http://localhost:3000/tasks').then((res) => {
+    axios.get(api + 'tasks').then((res) => {
       setTasks(res.data)
     })
   }, [])
