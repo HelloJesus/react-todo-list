@@ -222,13 +222,13 @@
     {
       "listId": 8,
       "text": "sdfsdf",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 97
     },
     {
       "listId": 1,
       "text": "wwfwef",
-      "isCompleted": false,
+      "isCompleted": true,
       "id": 98
     },
     {
