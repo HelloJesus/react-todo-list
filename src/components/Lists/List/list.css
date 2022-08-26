@@ -1,0 +1,143 @@
+.list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: auto;
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 5px 5px 5px 5px;
+    border-radius: 10px;
+}
+
+.list--active {
+    background-color: #0083ff42;
+}
+
+.list:last-child {
+    margin-bottom: 0px;
+}
+
+.list input {
+    height: 23px;
+    width: 100px;
+    padding: 2px 5px 0 5px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    outline: none;
+    color: #6b6b6b;
+}
+
+.error {
+    border: 1px solid #c74848;
+}
+
+.list__info {
+    display: flex;
+    align-items: center;
+}
+
+.info-list__color {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+.info-list h5,
+span {
+    font-family: "SF Pro-Regular";
+    font-weight: normal;
+    font-size: 18px;
+    color: #0000009f;
+}
+
+.info-list h5 {
+    max-width: 130px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.list__icons {
+    display: flex;
+}
+
+.list__icon {
+    display: inline;
+    width: 19px;
+    height: auto;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.list__icon:nth-child(2) {
+    margin-left: 5px;
+}
+
+.list__icon--none {
+    display: none;
+}
+
+@media screen and (max-width: 870px) {
+    .info-list h5 {
+        max-width: 100px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+    .info-list h5 {
+        font-size: 16px;
+    }
+
+    .info-list span {
+        font-size: 14px;
+    }
+}
+
+@media screen and (max-width: 703px) {
+    .info-list h5 {
+        max-width: 80px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .list {
+        width: auto;
+    }
+
+    .info-list h5 {
+        max-width: 150px;
+    }
+
+    .list__icon:nth-child(2) {
+        margin-left: 15px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .list {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .info-list h5 {
+        max-width: 275px;
+    }
+
+    .list input {
+        width: 200px;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .info-list h5 {
+        max-width: 225px;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .info-list h5 {
+        max-width: 170px;
+    }
+}

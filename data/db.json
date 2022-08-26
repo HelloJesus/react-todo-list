@@ -1,0 +1,280 @@
+{
+  "lists": [
+    {
+      "id": 1,
+      "title": "Favourites",
+      "colorId": 4
+    },
+    {
+      "id": 2,
+      "title": "Groceries",
+      "colorId": 2
+    },
+    {
+      "id": 3,
+      "title": "Work",
+      "colorId": 1
+    },
+    {
+      "id": 4,
+      "title": "Study",
+      "colorId": 3
+    },
+    {
+      "id": 5,
+      "title": "Sports",
+      "colorId": 5
+    },
+    {
+      "title": "Отдых",
+      "colorId": 1,
+      "id": 6
+    },
+    {
+      "title": "sdf557",
+      "colorId": 2,
+      "id": 7
+    },
+    {
+      "title": "Travel",
+      "colorId": 3,
+      "id": 8
+    },
+    {
+      "title": "hgg6yuiyuiuyiyuiuysdfwtr23t4thygsgsdfgredergf34wfsdgfsg",
+      "colorId": 3,
+      "id": 9
+    },
+    {
+      "title": "56u56u",
+      "colorId": 3,
+      "id": 10
+    },
+    {
+      "title": "56u56u",
+      "colorId": 5,
+      "id": 11
+    }
+  ],
+  "tasks": [
+    {
+      "listId": 5,
+      "text": "rtygtgredfdfdsds",
+      "isCompleted": false,
+      "id": 31
+    },
+    {
+      "listId": 1,
+      "text": "44567567",
+      "isCompleted": true,
+      "id": 34
+    },
+    {
+      "listId": 1,
+      "text": "gergerfghfgh",
+      "isCompleted": true,
+      "id": 35
+    },
+    {
+      "listId": 6,
+      "text": "34t34t67567",
+      "isCompleted": false,
+      "id": 42
+    },
+    {
+      "listId": 3,
+      "text": "Привет сегодня вышел на прогул",
+      "isCompleted": true,
+      "id": 45
+    },
+    {
+      "listId": 2,
+      "text": "rtygtgr66677",
+      "isCompleted": false,
+      "id": 47
+    },
+    {
+      "listId": 2,
+      "text": "4terdt76876",
+      "isCompleted": false,
+      "id": 49
+    },
+    {
+      "listId": 2,
+      "text": "34tdrt",
+      "isCompleted": false,
+      "id": 50
+    },
+    {
+      "listId": 7,
+      "text": "test",
+      "isCompleted": true,
+      "id": 51
+    },
+    {
+      "listId": 7,
+      "text": "tewst",
+      "isCompleted": true,
+      "id": 52
+    },
+    {
+      "listId": 7,
+      "text": "ttttt",
+      "isCompleted": false,
+      "id": 53
+    },
+    {
+      "listId": 7,
+      "text": "343r",
+      "isCompleted": false,
+      "id": 54
+    },
+    {
+      "listId": 7,
+      "text": "r32r3",
+      "isCompleted": false,
+      "id": 55
+    },
+    {
+      "listId": 1,
+      "text": "ddd",
+      "isCompleted": true,
+      "id": 56
+    },
+    {
+      "listId": 1,
+      "text": "fff",
+      "isCompleted": false,
+      "id": 57
+    },
+    {
+      "listId": 1,
+      "text": "ddddsss66",
+      "isCompleted": false,
+      "id": 58
+    },
+    {
+      "listId": 1,
+      "text": "fefe",
+      "isCompleted": true,
+      "id": 59
+    },
+    {
+      "listId": 1,
+      "text": "fewfewr666",
+      "isCompleted": false,
+      "id": 60
+    },
+    {
+      "listId": 1,
+      "text": "fsdf444",
+      "isCompleted": false,
+      "id": 61
+    },
+    {
+      "listId": 9,
+      "text": "tytryfdfdw",
+      "isCompleted": true,
+      "id": 62
+    },
+    {
+      "listId": 9,
+      "text": "fewfwef",
+      "isCompleted": false,
+      "id": 63
+    },
+    {
+      "listId": 9,
+      "text": "4et324te4rt",
+      "isCompleted": false,
+      "id": 64
+    },
+    {
+      "listId": 9,
+      "text": "4444",
+      "isCompleted": true,
+      "id": 66
+    },
+    {
+      "listId": 9,
+      "text": "346344",
+      "isCompleted": false,
+      "id": 69
+    },
+    {
+      "listId": 9,
+      "text": "345ertyert",
+      "isCompleted": false,
+      "id": 70
+    },
+    {
+      "listId": 1,
+      "text": "кпукп",
+      "isCompleted": false,
+      "id": 71
+    },
+    {
+      "listId": 1,
+      "text": "ftgerg",
+      "isCompleted": true,
+      "id": 72
+    },
+    {
+      "listId": 8,
+      "text": "sdfsdf",
+      "isCompleted": false,
+      "id": 97
+    },
+    {
+      "listId": 1,
+      "text": "wwfwef",
+      "isCompleted": false,
+      "id": 98
+    },
+    {
+      "listId": 1,
+      "text": "fefefw",
+      "isCompleted": false,
+      "id": 99
+    },
+    {
+      "listId": 1,
+      "text": "gutyjtyj",
+      "isCompleted": false,
+      "id": 100
+    },
+    {
+      "listId": 1,
+      "text": "5u56u56",
+      "isCompleted": false,
+      "id": 101
+    }
+  ],
+  "colors": [
+    {
+      "id": 1,
+      "hex": "#2F80ED",
+      "name": "blue"
+    },
+    {
+      "id": 2,
+      "hex": "#27AE60",
+      "name": "green"
+    },
+    {
+      "id": 3,
+      "hex": "#F2994A",
+      "name": "orange"
+    },
+    {
+      "id": 4,
+      "hex": "#EB5757",
+      "name": "red"
+    },
+    {
+      "id": 5,
+      "hex": "#9B51E0",
+      "name": "purple"
+    }
+  ]
+}

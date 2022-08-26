@@ -1,0 +1,149 @@
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: auto;
+    padding: 5px 5px 5px 5px;
+}
+
+
+.task:last-child {
+    margin-bottom: 0px;
+}
+
+.task:hover {
+    background-color: #ffffff8b;
+    border-radius: 10px;
+}
+
+.task img {
+    width: 25px;
+}
+
+.task input {
+    height: 100%;
+    width: 100%;
+    padding: 2px 5px 0 5px;
+    margin-right: 10px;
+    border: 1px solid #bdbdbd;
+    border-radius: 5px;
+    font-size: 16px;
+    outline: none;
+    color: #6b6b6b;
+}
+
+.task__info {
+    display: flex;
+    align-items: center;
+    width: 450px;
+}
+
+.info-task__checkbox {
+    position: relative;
+    color: #000000b8;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+}
+
+.info-task__checkbox img {
+    position: absolute;
+    width: 27px;
+    height: 27px;
+    left: 7px;
+    bottom: 6px;
+}
+
+input[type="checkbox"] {
+    display: none;
+}
+
+input[type="checkbox"]+span {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    vertical-align: middle;
+    border: 3px solid #EB5757;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 5;
+}
+
+
+.info-task__text {
+    margin-left: 10px;
+    word-break: break-word
+}
+
+.task__icons {
+    display: flex;
+}
+
+.task__icons img {
+    width: 25px;
+}
+
+.btn--edit {
+    display: block;
+    height: 30px;
+    border: 1px solid #d8d216;
+    box-shadow: 0 0 5px #e8e118be;
+    color: #dacf00;
+}
+
+.btn--edit:hover {
+    border: 1px solid #d5a815;
+    border-radius: 5px;
+    background-color: #ebd800;
+    color: #ffffff;
+}
+
+
+
+@media screen and (max-width: 790px) {
+    .task__info {
+        width: 80%;
+    }
+
+}
+
+@media screen and (max-width: 680px) {
+    .task input {
+        font-size: 14px;
+    }
+
+    .task__info {
+        height: auto;
+    }
+
+    input[type="checkbox"]+span {
+        width: 25px;
+        height: 25px;
+        border: 2px solid #EB5757;
+        border-radius: 7px;
+    }
+
+    .info-task__checkbox img {
+        width: 22px;
+        height: 22px;
+        left: 6px;
+        bottom: 6px;
+    }
+}
+
+
+@media screen and (max-width: 559px) {
+    .task__info {
+        height: auto;
+    }
+
+    .task__buttons {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .task {
+        margin: 0;
+    }
+}

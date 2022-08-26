@@ -1,0 +1,103 @@
+.btn-container {
+    width: 90%;
+    margin: 20px auto 0 auto;
+}
+
+.btn-newList {
+    font-family: "SF Pro-Regular";
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+    user-select: none;
+}
+
+.btn-addList {
+    position: relative;
+    width: auto;
+    height: auto;
+    padding: 10px 0 10px 0;
+    background-color: #e9e9e992;
+    border-radius: 15px;
+    box-shadow: 1px 1px 5px #00000037;
+    text-align: center;
+}
+
+.btn-addList img {
+    position: absolute;
+    width: 25px;
+    right: -10px;
+    top: -10px;
+    cursor: pointer;
+}
+
+.btn-addList input {
+    display: block;
+    width: 80%;
+    height: 30px;
+    margin: 0 auto 5px auto;
+    border: none;
+    border-radius: 5px;
+    font-family: "SF Pro-Regular";
+    font-size: 18px;
+}
+
+.btn-addList svg {
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.active {
+    border: 5px solid #2f81ed76;
+}
+
+.btn-addList button {
+    display: block;
+    /* width: auto; */
+    height: 30px;
+    margin: 0 auto 0 auto;
+    padding: 0 10px 0 10px;
+    border: 1px solid #33bf6d;
+    box-shadow: 0 0 5px #33bf6db0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-family: "SF Pro-Regular";
+    font-size: 16px;
+    color: #33bf6d;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.btn-addList button:hover {
+    border: 1px solid #33bf6d;
+    border-radius: 5px;
+    background-color: #33bf6d;
+    color: #ffffff;
+}
+
+@media screen and (max-width: 535px) {
+    .btn-newList {
+        width: auto;
+        color: #0947749f
+    }
+
+    .btn-addList {
+        width: auto;
+        padding: 10px 10px 10px 10px;
+    }
+
+    .btn-addList input {
+        width: 95%;
+        margin: 0 auto 10px auto;
+    }
+
+    .btn-addList svg {
+        margin-right: 5px;
+    }
+
+    .btn-addList button {
+        width: 50%;
+        height: auto;
+        margin-top: 5px;
+        padding: 5px 10px 5px 10px;
+    }
+}

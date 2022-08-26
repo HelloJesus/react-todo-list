@@ -1,0 +1,129 @@
+.todo__lists {
+    width: 250px;
+    height: 100%;
+    border-right: 1px solid #ecf8ff6e;
+}
+
+.lists-todo__inner {
+    width: 100%;
+    margin-top: 55px;
+    padding-right: 10px;
+}
+
+.lists {
+    height: 265px;
+    padding-right: 5px;
+    white-space: nowrap;
+    overflow-y: auto;
+    text-overflow: ellipsis;
+    text-align: center;
+    cursor: pointer;
+}
+
+.lists::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 5px;
+    background-color: rgb(221, 221, 221);
+}
+
+.lists::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgb(102, 102, 102);
+}
+
+
+.lists-all {
+    margin-bottom: 20px;
+    font-family: "SF Pro-Bold";
+    font-size: 20px;
+    color: #ffffff;
+    cursor: pointer;
+}
+
+.todo__lists-toggler div {
+    width: 30px;
+    height: 3px;
+    margin: 7px;
+    background-color: rgb(255, 255, 255);
+    transition: all 0.2s ease-in;
+}
+
+.todo__lists-toggler {
+    display: none;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width: 757px) {
+    .todo__lists {
+        min-width: 220px;
+    }
+}
+
+@media screen and (max-width: 703px) {
+    .todo__lists {
+        min-width: 200px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .todo__lists {
+        position: fixed;
+        right: 0;
+        top: 0;
+        width: 300px;
+        padding: 0 10px 0 10px;
+        border: none;
+        background-color: rgb(255, 255, 255);
+        z-index: 7;
+        transform: translateX(100%);
+        transition: all 0.2s ease-in;
+    }
+
+    .lists-all {
+        text-align: center;
+        color: #9099b8;
+        font-size: 24px;
+    }
+
+    .todo__lists-toggler {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 5px;
+        z-index: 8;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .lists {
+        height: 275px;
+    }
+
+    .todo__lists {
+        width: 100%;
+    }
+
+    .lists-todo__inner {
+        margin-top: 45px;
+    }
+}
+
+.lists-todo__active {
+    transform: translateX(0%);
+}
+
+.toggle .line1 {
+    transform: rotate(-45deg) translate(-4px, 10px);
+    background-color: #6d6d6d;
+}
+
+.toggle .line2 {
+    opacity: 0;
+}
+
+.toggle .line3 {
+    transform: rotate(45deg)translate(-4px, -10px);
+    background-color: #6d6d6d;
+}

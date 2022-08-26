@@ -1,0 +1,33 @@
+.info-task__badge {
+    max-width: 100px;
+    height: 30px;
+    margin: 0 10px 0 10px;
+    padding: 0 10px 0 10px;
+    align-items: center;
+    border-radius: 40px;
+    text-align: center;
+}
+
+.badge__text {
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+    font-size: 13px;
+    line-height: 1.1;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color: #fff;
+}
+
+@media screen and (max-width: 680px) {
+    .info-task__badge {
+        padding: 0 10px 0 10px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .info-task__badge {
+        padding: 0 10px 0 10px;
+    }
+}

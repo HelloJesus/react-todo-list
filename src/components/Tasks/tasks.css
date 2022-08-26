@@ -1,0 +1,120 @@
+.tasks__list {
+    margin-left: 25.3px;
+}
+
+
+.tasks__list h2 {
+    line-height: 1;
+    font-size: 26px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.tasks__list-input {
+    display: flex;
+    margin: 18px 0 10px 0;
+}
+
+.tasks__list-input input {
+    width: 100%;
+    height: 39px;
+    padding-left: 10px;
+    background: #ffffffbb;
+    border-radius: 6px;
+    border: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.tasks__list-input input::placeholder {
+    font-size: 20px;
+    color: #2069766f;
+}
+
+.tasks__list-input button {
+    display: block;
+    /* width: auto; */
+    height: 39px;
+    margin-left: 5px;
+    padding: 0 10px 0 10px;
+    border: 1px solid #33bf6d;
+    box-shadow: 0 0 5px #33bf6db0;
+    border-radius: 5px;
+    background-color: #ffffff;
+    font-family: "SF Pro-Regular";
+    font-size: 16px;
+    color: #33bf6d;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.tasks__list-input button:hover {
+    border: 1px solid #33bf6d;
+    border-radius: 5px;
+    background-color: #33bf6d;
+    color: #ffffff;
+}
+
+.tasks {
+    height: 400px;
+    padding-right: 5px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.tasks::-webkit-scrollbar {
+    width: 4px;
+    border-radius: 5px;
+    background-color: rgb(221, 221, 221);
+}
+
+.tasks::-webkit-scrollbar-thumb {
+    border-radius: 5px;
+    background-color: rgb(102, 102, 102);
+}
+
+@media screen and (max-width: 700px) {
+    .tasks__list {
+        margin-left: 10px;
+    }
+
+    .tasks__list h1 {
+        font-size: 24px;
+    }
+
+    .tasks__list-input::placeholder {
+        font-size: 18px;
+    }
+
+    .tasks__list-input {
+        font-size: 18px;
+    }
+}
+
+@media screen and (max-width: 680px) {
+    .tasks {
+        height: 380px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+
+    .tasks__list h1 {
+        font-size: 22px;
+    }
+
+    .tasks__list input::placeholder {
+        font-size: 16px;
+    }
+}
+
+@media screen and (max-width: 535px) {
+    .tasks__list {
+        margin-left: 5px;
+    }
+
+    .tasks {
+        height: auto;
+    }
+}
