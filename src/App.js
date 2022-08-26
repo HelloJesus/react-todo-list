@@ -6,7 +6,7 @@ import Lists from './components/Lists/Lists';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
-const api = "http://localhost:5000/"
+const api = "https://react-todolist-heroku.herokuapp.com/"
 
 function App() {
   let [lists, setLists] = useState(null)
