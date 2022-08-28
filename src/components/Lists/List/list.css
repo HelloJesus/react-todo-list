@@ -7,6 +7,11 @@
     margin-bottom: 15px;
     padding: 5px 5px 5px 5px;
     border-radius: 10px;
+    cursor: pointer;
+}
+
+.list:hover {
+    background-color: rgb(103, 194, 221);
 }
 
 .list--active {
@@ -19,7 +24,8 @@
 
 .list input {
     height: 23px;
-    width: 100px;
+    width: 100%;
+    margin-right: 15px;
     padding: 2px 5px 0 5px;
     border: 1px solid #bdbdbd;
     border-radius: 5px;

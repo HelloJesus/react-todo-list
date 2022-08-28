@@ -12,9 +12,10 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
         setEdit(true)
     }
 
-    const handleSubmit = () => {
+    const handleSubmit = (evt) => {
         setNavigate(item)
         setActiveList(item.id)
+        console.log(evt)
     }
 
     const deleteList = (evt, id) => {

@@ -9,7 +9,7 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
 
     const handleSumbit = () => {
         navigate('/')
-        setIsMobile(true)
+        setIsMobile(false)
         setActiveList(false)
     }
 

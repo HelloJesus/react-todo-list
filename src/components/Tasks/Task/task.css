@@ -4,6 +4,7 @@
     align-items: center;
     height: auto;
     padding: 5px 5px 5px 5px;
+    cursor: pointer;
 }
 
 
@@ -77,26 +78,31 @@ input[type="checkbox"]+span {
 
 .task__icons {
     display: flex;
+    opacity: 0;
+}
+
+.task:hover .task__icons {
+    opacity: 1;
 }
 
 .task__icons img {
     width: 25px;
 }
 
-.btn--edit {
+/* .btn--edit {
     display: block;
     height: 30px;
     border: 1px solid #d8d216;
     box-shadow: 0 0 5px #e8e118be;
     color: #dacf00;
-}
+} */
 
-.btn--edit:hover {
+/* .btn--edit:hover {
     border: 1px solid #d5a815;
     border-radius: 5px;
     background-color: #ebd800;
     color: #ffffff;
-}
+} */
 
 
 

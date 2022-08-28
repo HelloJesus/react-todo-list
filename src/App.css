@@ -67,6 +67,7 @@ button {
 .icon--delete {
   display: inline;
   width: 20px;
+  height: 20px;
   height: auto;
   cursor: pointer;
 }

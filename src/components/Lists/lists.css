@@ -17,7 +17,6 @@
     overflow-y: auto;
     text-overflow: ellipsis;
     text-align: center;
-    cursor: pointer;
 }
 
 .lists::-webkit-scrollbar {

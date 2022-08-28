@@ -7,7 +7,6 @@ import axios from "axios"
 const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
     let [edit, setEdit] = useState(false)
-    let [visible, setVisible] = useState(false)
 
     useEffect(() => {
         setIsChecked(item.isCompleted)
@@ -37,7 +36,6 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
             }
         })
         setEdit(false)
-        setVisible(false)
     }
 
     const deleteTask = (id) => {
@@ -48,7 +46,8 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
         })
     }
 
-    const setCheckedTask = () => {
+    const setCheckedTask = (evt) => {
+        evt.stopPropagation()
         setIsChecked(!isChecked)
         try {
             updateTask(item.text, item.id, !isChecked)
@@ -68,8 +67,6 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
         updateTask={updateTask}
         edit={edit}
         setEdit={setEdit}
-        visible={visible}
-        setVisible={setVisible}
         isChecked={isChecked}
         setCheckedTask={setCheckedTask}
         withEmpty={withEmpty} />
