@@ -66,7 +66,7 @@ span {
 .list__icon {
     display: inline;
     width: 19px;
-    height: auto;
+    height: 19px;
     margin-left: 10px;
     cursor: pointer;
 }

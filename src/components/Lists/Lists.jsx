@@ -13,7 +13,7 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
         setActiveList(false)
     }
 
-    return <><div className={isMobile ? "todo__lists" : "todo__lists lists-todo__active"}>
+    return <><div className={isMobile ? "todo__lists lists-todo__active" : "todo__lists"}>
         <div className="lists-todo__inner">
             <div className="lists-all" onClick={handleSumbit}>All Tasks</div>
             <ul className="lists">
@@ -31,7 +31,7 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
             <AddList lists={lists} colors={colors} setAddList={setAddList} />
         </div>
     </div>
-        <div onClick={() => setIsMobile(!isMobile)} className={isMobile ? "todo__lists-toggler" : "todo__lists-toggler toggle"}>
+        <div onClick={() => setIsMobile(!isMobile)} className={isMobile ? "todo__lists-toggler toggle" : "todo__lists-toggler"}>
             <div className="line1"></div>
             <div className="line2"></div>
             <div className="line3"></div>

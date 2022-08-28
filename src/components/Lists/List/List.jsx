@@ -12,8 +12,9 @@ const List = ({ item, edit, visible, setVisible, updateList, deleteList, handleE
                     valueProps={title}
                     item={item} />
             </li> :
-            <li className="list" style={active ? { backgroundColor: "rgb(103 194 221)" } : {}} onMouseEnter={() => setVisible(true)}
-                onMouseLeave={() => setVisible(false)} onClick={handleSubmit}>
+            <li className="list" style={active ? { backgroundColor: "rgb(103 194 221)" } : {}} onClick={handleSubmit}
+                onMouseEnter={() => setVisible(true)}
+                onMouseLeave={() => setVisible(false)} >
                 <div className="list__info info-list">
                     <div className="info-list__color" style={{ backgroundColor: item.color.hex }}></div>
                     <h5>{title}</h5>

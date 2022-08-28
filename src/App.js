@@ -17,13 +17,13 @@ function App() {
   let location = useLocation();
 
   useEffect(() => {
-    axios.get("https://react-todolist-heroku.herokuapp.com/" + 'lists?_expand=color&_embed=tasks').then((res) => {
+    axios.get("https://react-todolist-heroku.herokuapp.com/lists?_expand=color&_embed=tasks").then((res) => {
       setLists(res.data)
     })
-    axios.get("https://react-todolist-heroku.herokuapp.com/" + 'colors').then((res) => {
+    axios.get("https://react-todolist-heroku.herokuapp.com/colors").then((res) => {
       setColors(res.data)
     })
-    axios.get("https://react-todolist-heroku.herokuapp.com/" + 'tasks').then((res) => {
+    axios.get("https://react-todolist-heroku.herokuapp.com/tasks").then((res) => {
       setTasks(res.data)
     })
   }, [])
