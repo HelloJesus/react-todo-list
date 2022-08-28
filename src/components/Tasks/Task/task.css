@@ -87,6 +87,7 @@ input[type="checkbox"]+span {
 
 .task__icons img {
     width: 25px;
+    height: 25px;
 }
 
 /* .btn--edit {
