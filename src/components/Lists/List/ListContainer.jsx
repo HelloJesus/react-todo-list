@@ -5,7 +5,6 @@ import List from "./List"
 
 const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, active }) => {
     let [edit, setEdit] = useState(false)
-    let [visible, setVisible] = useState(false)
     let [title, setTitle] = useState(item.title)
 
     const handleEdit = (evt) => {
@@ -50,14 +49,11 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
             setTitle(prevTitle)
         })
         setEdit(false)
-        setVisible(false)
     }
 
     return <List
         item={item}
         edit={edit}
-        visible={visible}
-        setVisible={setVisible}
         updateList={updateList}
         deleteList={deleteList}
         handleEdit={handleEdit}

@@ -61,6 +61,11 @@ span {
 
 .list__icons {
     display: flex;
+    opacity: 0;
+}
+
+.list:hover .list__icons {
+    opacity: 1;
 }
 
 .list__icon {
