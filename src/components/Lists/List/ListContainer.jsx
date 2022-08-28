@@ -2,7 +2,6 @@ import { useState } from "react"
 import axios from "axios"
 import List from "./List"
 
-const api = "https://react-todolist-heroku.herokuapp.com//lists/"
 
 const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, active }) => {
     let [edit, setEdit] = useState(false)
@@ -21,7 +20,7 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
 
     const deleteList = (evt, id) => {
         evt.stopPropagation()
-        axios.delete(api + id).then(() => {
+        axios.delete("https://react-todolist-heroku.herokuapp.com/lists/" + id).then(() => {
             setRemoveList(id)
         }).catch(() => {
             alert('Не удалось удалить категорию')
@@ -42,7 +41,7 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
 
         const prevTitle = item.title
         setTitle(title)
-        axios.patch(api + id, {
+        axios.patch("https://react-todolist-heroku.herokuapp.com/lists/" + id, {
             title: title,
         }).then(() => {
             setUpdateLists(title, id)

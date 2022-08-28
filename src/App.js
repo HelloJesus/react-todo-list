@@ -6,7 +6,6 @@ import Lists from './components/Lists/Lists';
 import { Route, Routes, useNavigate, useLocation } from 'react-router-dom';
 import PageNotFound from './components/PageNotFound/PageNotFound';
 
-const api = "https://react-todolist-heroku.herokuapp.com/"
 
 function App() {
   let [lists, setLists] = useState(null)
@@ -18,13 +17,13 @@ function App() {
   let location = useLocation();
 
   useEffect(() => {
-    axios.get(api + 'lists?_expand=color&_embed=tasks').then((res) => {
+    axios.get("https://react-todolist-heroku.herokuapp.com/" + 'lists?_expand=color&_embed=tasks').then((res) => {
       setLists(res.data)
     })
-    axios.get(api + 'colors').then((res) => {
+    axios.get("https://react-todolist-heroku.herokuapp.com/" + 'colors').then((res) => {
       setColors(res.data)
     })
-    axios.get(api + 'tasks').then((res) => {
+    axios.get("https://react-todolist-heroku.herokuapp.com/" + 'tasks').then((res) => {
       setTasks(res.data)
     })
   }, [])

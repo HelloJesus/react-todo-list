@@ -3,6 +3,8 @@ import TaskContainer from "./Task/TaskContainer"
 import "./tasks.css"
 import axios from "axios"
 
+const api = "https://react-todolist-heroku.herokuapp.com/tasks"
+
 const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) => {
     let [valueTask, setValueTask] = useState('')
 
@@ -17,7 +19,7 @@ const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) =
             isCompleted: false
         }
 
-        axios.post('http://localhost:3000/tasks', objTask).then(({ data }) => {
+        axios.post(api, objTask).then(({ data }) => {
             setAddTask(data)
             setValueTask('')
         })

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import "./addList.css"
 import imgClose from "../../../images/icons8-cancel.svg"
 
+
 const AddList = ({ lists, colors, setAddList }) => {
     let [visibleBtn, setVisibleBtn] = useState(false)
     let [activeColor, setActiveColor] = useState(null)
@@ -27,7 +28,7 @@ const AddList = ({ lists, colors, setAddList }) => {
 
     const addList = () => {
         setLoading(true)
-        axios.post('http://localhost:3000/lists', {
+        axios.post("https://react-todolist-heroku.herokuapp.com/lists", {
             title: inputValue,
             colorId: activeColor
         }).then(({ data }) => {

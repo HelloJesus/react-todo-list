@@ -3,7 +3,6 @@ import "./task.css"
 import Task from "./Task"
 import axios from "axios"
 
-const api = "https://react-todolist-heroku.herokuapp.com/tasks/"
 
 const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
@@ -25,7 +24,7 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
             }
         }
 
-        axios.patch(api + id, {
+        axios.patch("https://react-todolist-heroku.herokuapp.com/tasks/" + id, {
             text: text,
             isCompleted: isCompleted
         }).then(() => {
@@ -42,7 +41,7 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     }
 
     const deleteTask = (id) => {
-        axios.delete(api + id).then(() => {
+        axios.delete("https://react-todolist-heroku.herokuapp.com/tasks/" + id).then(() => {
             setRemoveTask(id, item.list)
         }).catch(() => {
             alert("Не удалось удалить задачу")
