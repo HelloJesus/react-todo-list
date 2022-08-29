@@ -10,7 +10,7 @@
     cursor: pointer;
 }
 
-.list:hover {
+.list:active {
     background-color: rgb(103, 194, 221);
 }
 
@@ -67,15 +67,15 @@ span {
 
 .list__icons {
     display: flex;
-    opacity: 0;
+    /* opacity: 0; */
 }
 
-.list:hover .list__icons {
+/* .list:hover .list__icons {
     opacity: 1;
-}
+} */
 
 .list__icon {
-    display: inline;
+    /* display: inline; */
     width: 19px;
     height: 19px;
     margin-left: 10px;

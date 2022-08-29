@@ -3,7 +3,7 @@ import iconDelete from "../../../images/iconDelete.png"
 import iconEdit from "../../../images/iconEdit.svg"
 import "./list.css"
 
-const List = ({ item, edit, updateList, deleteList, handleEdit, handleSubmit, active, title }) => {
+const List = ({ item, edit, updateList, deleteList, handleEdit, handleSubmit, setVisible, visible, active, title }) => {
     const tasksLength = item.tasks.filter(task => task.isCompleted === false).length
     return <>
         {edit ?
@@ -14,16 +14,18 @@ const List = ({ item, edit, updateList, deleteList, handleEdit, handleSubmit, ac
                     item={item} />
             </li> :
             <li className="list" style={active ? { backgroundColor: "rgb(103 194 221)" } : {}}
-                onClick={(evt) => handleSubmit(evt)} onTouchStart={(evt) => handleSubmit(evt)}>
+                onClick={(evt) => handleSubmit(evt)}
+                onMouseEnter={() => setVisible(!visible)}
+                onMouseLeave={() => setVisible(!visible)}>
                 <div className="list__info info-list">
                     <div className="info-list__color" style={{ backgroundColor: item.color.hex }}></div>
                     <h5>{title}</h5>
                     <span>{tasksLength === 0 ? '' : `(${tasksLength})`}</span>
                 </div>
-                <div className="list__icons" style={active ? { opacity: 1 } : {}}>
-                    <img className="list__icon"
+                <div className="list__icons">
+                    <img className="list__icon" style={visible ? { display: "inline" } : { display: "none" }}
                         src={iconEdit} alt="iconEdit" onClick={(evt) => handleEdit(evt)} />
-                    <img className="list__icon"
+                    <img className="list__icon" style={visible ? { display: "inline" } : { display: "none" }}
                         src={iconDelete} alt="iconDelete" onClick={(evt) => deleteList(evt, item.id)} />
                 </div>
             </li >
