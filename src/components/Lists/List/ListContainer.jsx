@@ -12,7 +12,7 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
         setEdit(!edit)
     }
 
-    const handleSubmit = (evt) => {
+    const handleSubmit = () => {
         // evt.stopPropagation();
         // alert("Есть клик!")
         setActiveList(item.id)
