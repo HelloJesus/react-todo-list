@@ -16,9 +16,9 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
     const handleSubmit = (evt) => {
         // evt.stopPropagation();
         alert("Есть клик!")
-        setNavigate(item)
         setActiveList(item.id)
-        console.log(evt.nativeEvent)
+        // setNavigate(item)
+        // console.log(evt.nativeEvent)
     }
 
     const deleteList = (evt, id) => {
