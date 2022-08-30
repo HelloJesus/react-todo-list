@@ -13,7 +13,7 @@ const List = ({ item, edit, updateList, deleteList, handleEdit, handleSubmit, se
                     valueProps={title}
                     item={item} />
             </li> :
-            <li className="list" style={active || visible ? { backgroundColor: "rgb(103 194 221)" } : {}}
+            <li className="list" style={active ? { backgroundColor: "rgb(103 194 221)" } : {}}
                 onClick={(evt) => handleSubmit(evt)}
                 onMouseEnter={() => setVisible(!visible)}
                 onMouseLeave={() => setVisible(!visible)}>
