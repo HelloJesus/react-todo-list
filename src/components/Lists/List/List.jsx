@@ -14,7 +14,7 @@ const List = ({ item, edit, updateList, deleteList, handleEdit, handleSubmit, ac
                     item={item} />
             </li> :
             <li className="list" style={active ? { backgroundColor: "rgb(103 194 221)" } : {}}
-                onClick={() => console.log("click")}>
+                onClick={() => alert("click")}>
                 <div className="list__info info-list">
                     <div className="info-list__color" style={{ backgroundColor: item.color.hex }}></div>
                     <h5>{title}</h5>
