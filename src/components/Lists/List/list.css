@@ -70,9 +70,13 @@ span {
     opacity: 0;
 }
 
-/* .list:hover .list__icons {
-    opacity: 1;
-} */
+
+
+@media (hover: hover) {
+    .list:hover .list__icons {
+        opacity: 1;
+    }
+}
 
 .list__icon {
     display: inline;
