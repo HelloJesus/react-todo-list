@@ -3,7 +3,7 @@ import axios from "axios"
 import List from "./List"
 
 
-const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, active }) => {
+const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, setIsMobile, active }) => {
     let [edit, setEdit] = useState(false)
     let [title, setTitle] = useState(item.title)
 
@@ -15,8 +15,9 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
     const handleSubmit = () => {
         // evt.stopPropagation();
         // alert("Есть клик!")
-        setActiveList(item.id)
         setNavigate(item)
+        setIsMobile(false)
+        setActiveList(item.id)
         // console.log(evt.nativeEvent)
     }
 

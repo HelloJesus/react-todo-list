@@ -23,8 +23,9 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
                         setRemoveList={setRemoveList}
                         setNavigate={setNavigate}
                         setUpdateLists={setUpdateLists}
-                        active={item.id === activeList ? true : false}
                         setActiveList={setActiveList}
+                        setIsMobile={setIsMobile}
+                        active={item.id === activeList ? true : false}
                     />
                 })}
             </ul>

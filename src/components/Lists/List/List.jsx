@@ -24,7 +24,7 @@ const List = ({ item, edit, updateList, deleteList, handleEdit, handleSubmit, ac
                     <h5>{title}</h5>
                     <span>{tasksLength === 0 ? '' : `(${tasksLength})`}</span>
                 </div>
-                <div className="list__icons" style={active ? { opacity: "1" } : {}}>
+                <div className="list__icons">
                     <img className="list__icon"
                         src={iconEdit} alt="iconEdit" onClick={(evt) => handleEdit(evt)} />
                     <img className="list__icon"
