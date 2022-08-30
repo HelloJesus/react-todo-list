@@ -6,18 +6,17 @@ import List from "./List"
 const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, active }) => {
     let [edit, setEdit] = useState(false)
     let [title, setTitle] = useState(item.title)
-    let [visible, setVisible] = useState(false)
 
     const handleEdit = (evt) => {
         evt.stopPropagation()
-        setEdit(true)
+        setEdit(!edit)
     }
 
     const handleSubmit = (evt) => {
         // evt.stopPropagation();
-        alert("Есть клик!")
+        // alert("Есть клик!")
         setActiveList(item.id)
-        // setNavigate(item)
+        setNavigate(item)
         // console.log(evt.nativeEvent)
     }
 
@@ -58,12 +57,11 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
     return <List
         item={item}
         edit={edit}
+        setEdit={setEdit}
         updateList={updateList}
         deleteList={deleteList}
         handleEdit={handleEdit}
         handleSubmit={handleSubmit}
-        setVisible={setVisible}
-        visible={visible}
         active={active}
         title={title}
     />
