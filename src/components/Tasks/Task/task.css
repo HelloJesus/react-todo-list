@@ -4,6 +4,8 @@
     align-items: center;
     height: auto;
     padding: 5px 5px 5px 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
     cursor: pointer;
 }
 
@@ -13,6 +15,11 @@
 }
 
 .task:hover {
+    background-color: #ffffff8b;
+    border-radius: 10px;
+}
+
+.task--background {
     background-color: #ffffff8b;
     border-radius: 10px;
 }
