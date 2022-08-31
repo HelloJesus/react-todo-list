@@ -15,8 +15,8 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
     }
 
     return < li className={edit ? "task task--bg" : visible ? "task task--bg" : "task"}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+        onMouseEnter={() => setVisible(true)}
+        onMouseLeave={() => setVisible(false)}
     >
         {edit
             ? <InputEdit
