@@ -88,11 +88,10 @@ input[type="checkbox"]+span {
     opacity: 0;
 }
 
-@media (hover: hover) {
-    .task:hover .task__icons {
-        opacity: 1;
-    }
+.task:hover .task__icons {
+    opacity: 1;
 }
+
 
 .task__icons img {
     width: 25px;
