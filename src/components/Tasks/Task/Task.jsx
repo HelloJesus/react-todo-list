@@ -6,9 +6,18 @@ import "./task.css"
 import InputEdit from "../../InputEdit/InputEdit"
 
 
-const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, withEmpty }) => {
+const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, visible, setVisible, withEmpty }) => {
+    const handleMouseEnter = () => {
+        setVisible(true)
+    }
+    const handleMouseLeave = () => {
+        setVisible(false)
+    }
 
-    return < li className={edit ? "task task--background" : "task"}>
+    return < li className={edit ? "task task--background" : "task"}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
+    >
         {edit
             ? <InputEdit
                 setUpdateValue={updateTask}
@@ -27,7 +36,7 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                     {withEmpty && <Badge text={item.listTitle} color={item.color} />}
                 </div>
                 {/* <div className="icons-container"></div> */}
-                <div className="task__icons" >
+                <div className={visible ? "task__icons task__icons--on" : "task__icons task__icons--off"}>
                     <img className="icon--edit" src={iconEdit} alt="iconEdit" onClick={() => setEdit(true)} />
                     <img className="icon--delete" src={iconDelete} alt="iconDelete" onClick={() => deleteTask(item.id)} />
                 </div>

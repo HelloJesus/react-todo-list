@@ -7,13 +7,13 @@ import axios from "axios"
 const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
     let [edit, setEdit] = useState(false)
+    let [visible, setVisible] = useState(false)
 
     useEffect(() => {
         setIsChecked(item.isCompleted)
     }, [item.isCompleted])
 
     const updateTask = (text, id, isCompleted) => {
-
         if (!text) {
             const result = window.confirm("Вы действительно хотите удалить текст?")
             if (result) {
@@ -70,6 +70,8 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
         setEdit={setEdit}
         isChecked={isChecked}
         setCheckedTask={setCheckedTask}
+        setVisible={setVisible}
+        visible={visible}
         withEmpty={withEmpty} />
 }
 
