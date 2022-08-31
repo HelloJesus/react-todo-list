@@ -7,14 +7,8 @@ import InputEdit from "../../InputEdit/InputEdit"
 
 
 const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, visible, setVisible, withEmpty }) => {
-    const handleSubmit = (evt) => {
-        if (evt.target.id) {
-            setCheckedTask()
-        }
-    }
 
-    return < li className={edit ? "task task--bg" : "task"}
-        onClick={(evt) => handleSubmit(evt)}>
+    return < li className={edit ? "task task--bg" : "task"}>
         {edit
             ? <InputEdit
                 setUpdateValue={updateTask}
@@ -32,7 +26,6 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                         : <p className="info-task__text" >{item.text}</p>}
                     {withEmpty && <Badge text={item.listTitle} color={item.color} />}
                 </div>
-                {/* <div className="icons-container"></div> */}
                 <div className="task__icons">
                     <img className="icon--edit" src={iconEdit} alt="iconEdit" onClick={() => setEdit(true)} />
                     <img className="icon--delete" src={iconDelete} alt="iconDelete" onClick={() => deleteTask(item.id)} />

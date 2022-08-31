@@ -87,22 +87,12 @@ input[type="checkbox"]+span {
     opacity: 0;
 }
 
-/* .task__icons img {
-    display: none;
-} */
-
-/* .task:active img {
-    display: block;
-} */
-
-
-.task:hover .task__icons img {
-    pointer-events: auto;
-    opacity: 1;
+@media (hover:hover) {
+    .task:hover .task__icons img {
+        pointer-events: auto;
+        opacity: 1;
+    }
 }
-
-
-
 
 .task__icons img {
     width: 25px;
