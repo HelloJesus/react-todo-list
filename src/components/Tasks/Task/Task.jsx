@@ -15,8 +15,7 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
     }
 
     return < li className={edit ? "task task--background" : "task"}
-        onMouseEnter={handleMouseEnter}
-        onMouseLeave={handleMouseLeave}
+
     >
         {edit
             ? <InputEdit
@@ -35,8 +34,8 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                         : <p className="info-task__text" >{item.text}</p>}
                     {withEmpty && <Badge text={item.listTitle} color={item.color} />}
                 </div>
-                {/* <div className="icons-container"></div> */}
-                <div className={visible ? "task__icons task__icons--on" : "task__icons task__icons--off"}>
+
+                <div className="task__icons task__icons--on">
                     <img className="icon--edit" src={iconEdit} alt="iconEdit" onClick={() => setEdit(true)} />
                     <img className="icon--delete" src={iconDelete} alt="iconDelete" onClick={() => deleteTask(item.id)} />
                 </div>
