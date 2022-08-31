@@ -26,10 +26,12 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                         : <p className="info-task__text" >{item.text}</p>}
                     {withEmpty && <Badge text={item.listTitle} color={item.color} />}
                 </div>
-                <div className="task__icons">
+                {/* <div className="icons-container"></div> */}
+                <div className="task__icons" >
                     <img className="icon--edit" src={iconEdit} alt="iconEdit" onClick={() => setEdit(true)} />
                     <img className="icon--delete" src={iconDelete} alt="iconDelete" onClick={() => deleteTask(item.id)} />
                 </div>
+
             </>
         }
     </li >

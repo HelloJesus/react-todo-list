@@ -13,6 +13,7 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     }, [item.isCompleted])
 
     const updateTask = (text, id, isCompleted) => {
+
         if (!text) {
             const result = window.confirm("Вы действительно хотите удалить текст?")
             if (result) {

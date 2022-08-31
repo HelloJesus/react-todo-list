@@ -85,12 +85,22 @@ input[type="checkbox"]+span {
 
 .task__icons {
     display: flex;
-    opacity: 0;
 }
 
-.task:hover .task__icons {
-    opacity: 1;
+.task__icons img {
+    display: none;
 }
+
+.task:active img {
+    display: block;
+}
+
+@media (hover: hover) {
+    .task:hover .task__icons img {
+        display: block;
+    }
+}
+
 
 
 .task__icons img {
