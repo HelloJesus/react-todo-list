@@ -7,17 +7,14 @@ import InputEdit from "../../InputEdit/InputEdit"
 
 
 const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, visible, setVisible, withEmpty }) => {
-    const handleMouseEnter = () => {
-        setVisible(true)
-    }
-    const handleMouseLeave = () => {
-        setVisible(false)
+    const handleSubmit = (evt) => {
+        if (evt.target.id) {
+            setCheckedTask()
+        }
     }
 
-    return < li className={edit ? "task task--bg" : visible ? "task task--bg" : "task"}
-        onMouseEnter={() => setVisible(true)}
-        onMouseLeave={() => setVisible(false)}
-    >
+    return < li className={edit ? "task task--bg" : "task"}
+        onClick={(evt) => handleSubmit(evt)}>
         {edit
             ? <InputEdit
                 setUpdateValue={updateTask}
@@ -27,7 +24,7 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                 <div className="task__info info-task">
                     <label className="info-task__checkbox">
                         {isChecked ? <img src={isSuccess} alt="isSuccess" /> : ""}
-                        <input type="checkbox" checked={isChecked || ""} onChange={(evt) => setCheckedTask(evt)} />
+                        <input id="checkbox" type="checkbox" checked={isChecked || ""} onChange={setCheckedTask} />
                         <span></span>
                     </label>
                     {isChecked
@@ -36,7 +33,7 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                     {withEmpty && <Badge text={item.listTitle} color={item.color} />}
                 </div>
                 {/* <div className="icons-container"></div> */}
-                <div className={visible ? "task__icons task__icons--on" : "task__icons task__icons--off"}>
+                <div className="task__icons">
                     <img className="icon--edit" src={iconEdit} alt="iconEdit" onClick={() => setEdit(true)} />
                     <img className="icon--delete" src={iconDelete} alt="iconDelete" onClick={() => deleteTask(item.id)} />
                 </div>

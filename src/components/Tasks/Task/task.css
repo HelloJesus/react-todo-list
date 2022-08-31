@@ -14,7 +14,7 @@
     margin-bottom: 0px;
 }
 
-.task--bg {
+.task:hover {
     background-color: #ffffff8b;
     border-radius: 10px;
 }
@@ -82,14 +82,9 @@ input[type="checkbox"]+span {
     display: flex;
 }
 
-.task__icons--off {
+.task__icons img {
     pointer-events: none;
     opacity: 0;
-}
-
-.task__icons--on {
-    pointer-events: auto;
-    opacity: 1;
 }
 
 /* .task__icons img {
@@ -100,11 +95,12 @@ input[type="checkbox"]+span {
     display: block;
 } */
 
-/* @media (hover: hover) {
-    .task:hover .task__icons img {
-        display: block;
-    }
-} */
+
+.task:hover .task__icons img {
+    pointer-events: auto;
+    opacity: 1;
+}
+
 
 
 
