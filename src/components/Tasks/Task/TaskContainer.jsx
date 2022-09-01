@@ -49,6 +49,8 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
 
     const setCheckedTask = (evt) => {
         // evt.stopPropagation()
+        evt.preventDefault();
+        console.log(evt)
         setIsChecked(!isChecked)
         try {
             updateTask(item.text, item.id, !isChecked)

@@ -18,7 +18,7 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                 <div className="task__info info-task">
                     <label className="info-task__checkbox">
                         {isChecked ? <img src={isSuccess} alt="isSuccess" /> : ""}
-                        <input id="checkbox" type="checkbox" checked={isChecked || ""} onChange={setCheckedTask} />
+                        <input id="checkbox" type="checkbox" checked={isChecked || ""} onChange={(evt) => setCheckedTask(evt)} />
                         <span></span>
                     </label>
                     {isChecked
@@ -30,7 +30,6 @@ const Task = ({ item, text, deleteTask, updateTask, edit, setEdit, isChecked, se
                     <img className="icon--edit" src={iconEdit} alt="iconEdit" onClick={() => setEdit(true)} />
                     <img className="icon--delete" src={iconDelete} alt="iconDelete" onClick={() => deleteTask(item.id)} />
                 </div>
-
             </>
         }
     </li >
