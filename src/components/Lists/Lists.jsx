@@ -17,8 +17,8 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
         <div className="lists-todo__inner">
             <div className="lists-all" onClick={handleSumbit}>All Tasks</div>
             <ul className="lists">
-                {lists && lists.map((item, index) => {
-                    return <ListContainer key={index}
+                {lists && lists.map((item) => {
+                    return <ListContainer key={item.id}
                         item={item}
                         setRemoveList={setRemoveList}
                         setNavigate={setNavigate}

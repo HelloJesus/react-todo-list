@@ -1,12 +1,14 @@
 .task {
     display: flex;
-    justify-content: space-between;
+    position: relative;
+    /* justify-content: space-between; */
     align-items: center;
     height: auto;
     padding: 5px 5px 5px 5px;
     margin-top: 5px;
     margin-bottom: 5px;
     cursor: pointer;
+
 }
 
 
@@ -38,6 +40,43 @@
     font-size: 16px;
     outline: none;
     color: #6b6b6b;
+}
+
+.flex {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.task__edit {
+    display: flex;
+    position: absolute;
+    padding: 5px 10px 5px 10px;
+    left: 50%;
+    transform: translate(-50%);
+    background-color: #323232;
+    color: #fff;
+    border-radius: 5px;
+    z-index: 10;
+    animation: taskEdit 0.5s forwards;
+}
+
+@keyframes taskEdit {
+    0% {
+        opacity: 0;
+        bottom: 0%;
+    }
+
+    100% {
+        opacity: 1;
+        bottom: 90%;
+    }
+
+}
+
+
+.task__edit p:first-child {
+    margin-right: 15px;
 }
 
 .task__info {
@@ -92,17 +131,17 @@ input[type="checkbox"]+span {
     opacity: 1;
 }
 
+@media (hover:hover) {
+    .task__icons img {
+        pointer-events: none;
+        opacity: 0;
+    }
 
-.task__icons img {
-    pointer-events: none;
-    opacity: 0;
+    .task:hover .task__icons img {
+        pointer-events: auto;
+        opacity: 1;
+    }
 }
-
-.task:hover .task__icons img {
-    pointer-events: auto;
-    opacity: 1;
-}
-
 
 .task__icons img {
     width: 25px;

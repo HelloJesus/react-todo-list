@@ -137,7 +137,8 @@ function App() {
                 <Tasks items={{ lists: activeList, tasks: activeList.tasks }}
                   setAddTask={setAddTask}
                   setRemoveTask={setRemoveTask}
-                  setUpdateTask={setUpdateTask} />
+                  setUpdateTask={setUpdateTask}
+                />
               }>
             </Route>
             <Route path="*" element={<PageNotFound />} />

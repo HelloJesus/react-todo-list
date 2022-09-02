@@ -25,7 +25,7 @@ const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) =
         })
     }
 
-    return <div className="tasks__list">
+    return <div className="tasks__list" >
         {!withEmpty && <>
             <h2 style={{ color: list.color.hex }}>{list.title}</h2>
             <div className="tasks__list-input">
@@ -36,7 +36,7 @@ const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) =
         </>
         }
         <ul className="tasks">
-            {items.tasks && items.tasks.map((task, index) => {
+            {items.tasks && items.tasks.map((task) => {
                 if (list.length > 1) {
                     color = list.filter(item => item.id === task.listId)[0].color.hex
                     title = list.filter(item => item.id === task.listId)[0].title
@@ -44,7 +44,7 @@ const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) =
                     title = list.title
                     color = list.color.hex
                 }
-                return <TaskContainer key={index}
+                return <TaskContainer key={task.id}
                     item={{ ...task, listTitle: title, color: color, list: items.list }}
                     withEmpty={withEmpty}
                     setRemoveTask={setRemoveTask}

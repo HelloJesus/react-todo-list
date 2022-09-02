@@ -4,10 +4,33 @@ import Task from "./Task"
 import axios from "axios"
 
 
-const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
+const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
     let [edit, setEdit] = useState(false)
     let [visible, setVisible] = useState(false)
+    let [longTouch, setLongTouch] = useState(false)
+    let clickHoldTimer = null;
+
+    const setTimer = () => {
+        clickHoldTimer = setTimeout(() => {
+            setLongTouch(true)
+        }, 500);
+    }
+
+    const clearTimer = () => {
+        clearTimeout(clickHoldTimer);
+    }
+
+    const clickOut = (evt) => {
+        if (evt.target.className !== 'task__edit') setLongTouch(false)
+
+    }
+    useEffect(() => {
+        window.addEventListener("touchstart", clickOut)
+        return () => {
+            window.removeEventListener("touchstart", clickOut)
+        }
+    }, [])
 
     useEffect(() => {
         setIsChecked(item.isCompleted)
@@ -40,6 +63,7 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
     }
 
     const deleteTask = (id) => {
+        setLongTouch(false)
         axios.delete("https://react-todolist-heroku.herokuapp.com/tasks/" + id).then(() => {
             setRemoveTask(id, item.list)
         }).catch(() => {
@@ -72,8 +96,10 @@ const TaskContainer = ({ item, setRemoveTask, setUpdateTask, withEmpty }) => {
         setEdit={setEdit}
         isChecked={isChecked}
         setCheckedTask={setCheckedTask}
-        setVisible={setVisible}
-        visible={visible}
+        setTimer={setTimer}
+        clearTimer={clearTimer}
+        longTouch={longTouch}
+        setLongTouch={setLongTouch}
         withEmpty={withEmpty} />
 }
 
