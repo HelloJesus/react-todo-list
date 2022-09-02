@@ -7,7 +7,6 @@ import axios from "axios"
 const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
     let [edit, setEdit] = useState(false)
-    let [visible, setVisible] = useState(false)
     let [longTouch, setLongTouch] = useState(false)
     let clickHoldTimer = null;
 
@@ -22,7 +21,9 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     }
 
     const clickOut = (evt) => {
-        if (evt.target.className !== 'task__edit') setLongTouch(false)
+        console.log(evt.target.id)
+
+        if (evt.target.id !== 'taskEdit') setLongTouch(false)
 
     }
     useEffect(() => {
