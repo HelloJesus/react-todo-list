@@ -22,8 +22,9 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     // }
 
     const clickOut = (evt) => {
+        console.log(evt)
         if (evt.target.id !== 'taskEdit') {
-            window.removeEventListener("touchstart", clickOut)
+            window.removeEventListener("touchend", clickOut)
             setLongTouch(false)
         }
     }
@@ -35,7 +36,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
             if (((new Date().getTime()) - touchTime) < 500) {
                 touchTime = 0
                 setLongTouch(true)
-                setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
+                setTimeout(() => { window.addEventListener("touchend", clickOut) }, 100)
             } else {
                 touchTime = new Date().getTime();
             }
