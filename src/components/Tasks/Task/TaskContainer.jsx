@@ -22,11 +22,16 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     // }
 
     const clickOut = (evt) => {
-        if ((evt.target.id !== 'taskEdit') && (evt.target.id !== 'taskDelete')) {
+        if (evt.target.id === 'taskEdit') {
+            setEdit(true)
+        } else if (evt.target.id === 'taskDelete') {
+            console.log(1)
+        } else {
             console.log(evt)
             window.removeEventListener("touchstart", clickOut)
             setLongTouch(false)
         }
+
     }
 
     const showMenuTask = () => {
