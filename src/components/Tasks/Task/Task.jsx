@@ -6,8 +6,7 @@ import "./task.css"
 import InputEdit from "../../InputEdit/InputEdit"
 
 
-const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, setTimer, clearTimer,
-    longTouch, setLongTouch, withEmpty }) => {
+const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, longTouch, handleDoubleMenu, withEmpty }) => {
 
     return < li className={edit ? "task task--bg" : "task"}>
         {edit
@@ -28,8 +27,7 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
                     <span></span>
                 </label>
                 <div className="flex"
-                    onTouchStart={setTimer}
-                    onTouchEnd={clearTimer}>
+                    onTouchStart={handleDoubleMenu}>
                     <div className="task__info info-task">
                         {isChecked
                             ? <p className="info-task__text" style={{ textDecoration: "line-through", color: "#EB5757" }}>{item.text}</p>

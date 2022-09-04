@@ -8,30 +8,45 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
     let [edit, setEdit] = useState(false)
     let [longTouch, setLongTouch] = useState(false)
-    let clickHoldTimer = null;
+    // let clickHoldTimer = null
+    let touchTime = null
 
-    const setTimer = () => {
-        clickHoldTimer = setTimeout(() => {
-            setLongTouch(true)
-        }, 500);
-    }
+    // const setTimer = () => {
+    //     clickHoldTimer = setTimeout(() => {
+    //         setLongTouch(true)
+    //     }, 500);
+    // }
 
-    const clearTimer = () => {
-        clearTimeout(clickHoldTimer);
-    }
+    // const clearTimer = () => {
+    //     clearTimeout(clickHoldTimer);
+    // }
 
     const clickOut = (evt) => {
-        console.log(evt.target.id)
-
-        if (evt.target.id !== 'taskEdit') setLongTouch(false)
-
-    }
-    useEffect(() => {
-        window.addEventListener("touchstart", clickOut)
-        return () => {
+        if (evt.target.id !== 'taskEdit') {
             window.removeEventListener("touchstart", clickOut)
+            setLongTouch(false)
         }
-    }, [])
+    }
+
+    const handleDoubleMenu = () => {
+        if (touchTime === 0) {
+            touchTime = new Date().getTime();
+        } else {
+            if (((new Date().getTime()) - touchTime) < 500) {
+                touchTime = 0
+                setLongTouch(true)
+                setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
+            } else {
+                touchTime = new Date().getTime();
+            }
+        }
+    }
+    // useEffect(() => {
+    //     window.addEventListener("touchstart", clickOut)
+    //     return () => {
+    //         window.removeEventListener("touchstart", clickOut)
+    //     }
+    // }, [])
 
     useEffect(() => {
         setIsChecked(item.isCompleted)
@@ -97,10 +112,11 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
         setEdit={setEdit}
         isChecked={isChecked}
         setCheckedTask={setCheckedTask}
-        setTimer={setTimer}
-        clearTimer={clearTimer}
+        // setTimer={setTimer}
+        // clearTimer={clearTimer}
         longTouch={longTouch}
         setLongTouch={setLongTouch}
+        handleDoubleMenu={handleDoubleMenu}
         withEmpty={withEmpty} />
 }
 
