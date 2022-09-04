@@ -22,21 +22,21 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     // }
 
     const clickOut = (evt) => {
-        console.log(evt)
-        if (evt.target.id !== 'taskEdit') {
-            window.removeEventListener("touchend", clickOut)
+        if ((evt.target.id !== 'taskEdit') && (evt.target.id !== 'taskDelete')) {
+            console.log(evt)
+            window.removeEventListener("touchstart", clickOut)
             setLongTouch(false)
         }
     }
 
-    const handleDoubleMenu = () => {
+    const showMenuTask = () => {
         if (touchTime === 0) {
             touchTime = new Date().getTime();
         } else {
             if (((new Date().getTime()) - touchTime) < 500) {
                 touchTime = 0
                 setLongTouch(true)
-                setTimeout(() => { window.addEventListener("touchend", clickOut) }, 100)
+                setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
             } else {
                 touchTime = new Date().getTime();
             }
@@ -90,8 +90,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
 
     const setCheckedTask = (evt) => {
         // evt.stopPropagation()
-        evt.preventDefault();
-        console.log(evt)
+        // evt.preventDefault();
         setIsChecked(!isChecked)
         try {
             updateTask(item.text, item.id, !isChecked)
@@ -117,7 +116,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
         // clearTimer={clearTimer}
         longTouch={longTouch}
         setLongTouch={setLongTouch}
-        handleDoubleMenu={handleDoubleMenu}
+        showMenuTask={showMenuTask}
         withEmpty={withEmpty} />
 }
 

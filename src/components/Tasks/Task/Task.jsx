@@ -6,8 +6,11 @@ import "./task.css"
 import InputEdit from "../../InputEdit/InputEdit"
 
 
-const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, longTouch, handleDoubleMenu, withEmpty }) => {
+const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, longTouch, showMenuTask, withEmpty }) => {
+    const stopprop = (evt) => {
 
+        setEdit(true)
+    }
     return < li className={edit ? "task task--bg" : "task"}>
         {edit
             ? <InputEdit
@@ -17,8 +20,8 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
             : <>
                 {longTouch
                     ? (<div className="task__edit" >
-                        <p id="taskEdit" onClick={() => setEdit(true)}>Изменить</p>
-                        <p id="taskEdit" onClick={() => deleteTask(item.id)}>Удалить</p>
+                        <p id="taskEdit" onTouchStart={(evt) => stopprop(evt)}>Изменить</p>
+                        <p id="taskDelete" onClick={() => deleteTask(item.id)}>Удалить</p>
                     </div>)
                     : ""}
                 <label className="info-task__checkbox">
@@ -27,7 +30,7 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
                     <span></span>
                 </label>
                 <div className="flex"
-                    onTouchStart={handleDoubleMenu}>
+                    onTouchStart={showMenuTask}>
                     <div className="task__info info-task">
                         {isChecked
                             ? <p className="info-task__text" style={{ textDecoration: "line-through", color: "#EB5757" }}>{item.text}</p>
