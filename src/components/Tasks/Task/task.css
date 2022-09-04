@@ -58,7 +58,7 @@
     color: #fff;
     border-radius: 5px;
     z-index: 10;
-    pointer-events: none;
+
     animation: taskEdit 0.5s forwards;
 }
 
@@ -71,7 +71,7 @@
     100% {
         opacity: 1;
         bottom: 90%;
-        pointer-events: auto;
+
     }
 }
 
