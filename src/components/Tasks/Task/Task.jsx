@@ -7,9 +7,7 @@ import InputEdit from "../../InputEdit/InputEdit"
 
 
 const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, longTouch, showMenuTask, withEmpty }) => {
-    const onTransitionEnd = (evt) => {
-        console.log(true)
-    }
+
     return < li className={edit ? "task task--bg" : "task"}>
         {edit
             ? <InputEdit
@@ -18,8 +16,11 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
                 item={item} />
             : <>
                 <div className={longTouch ? "task__edit task__edit--show" : "task__edit task__edit--none"}>
-                    <p onClick={() => setEdit(true)} id="taskEdit">Изменить</p>
-                    <p onClick={() => deleteTask(item.id)} id="taskDelete" >Удалить</p>
+                    <p onTouchEnd={(evt) => {
+                        setEdit(true)
+                        evt.preventDefault()
+                    }} id="taskEdit">Изменить</p>
+                    <p onTouchEnd={() => deleteTask(item.id)} id="taskDelete" >Удалить</p>
                 </div>
 
                 <label className="info-task__checkbox">
@@ -28,7 +29,7 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
                     <span></span>
                 </label>
                 <div className="flex"
-                    onClick={showMenuTask}>
+                    onTouchEnd={showMenuTask}>
                     <div className="task__info info-task">
                         {isChecked
                             ? <p className="info-task__text" style={{ textDecoration: "line-through", color: "#EB5757" }}>{item.text}</p>

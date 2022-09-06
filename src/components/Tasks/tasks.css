@@ -63,30 +63,18 @@
     overflow-x: hidden;
 }
 
+.tasks li:first-child .task__edit--show {
+    /* display: flex; */
+    visibility: visible;
+    opacity: 1;
+    bottom: -65%;
+}
+
 .tasks li:first-child .task__edit {
-    display: flex;
-    position: absolute;
-    padding: 5px 10px 5px 10px;
-    left: 50%;
-    transform: translate(-50%);
-    background-color: #323232;
-    color: #fff;
-    border-radius: 5px;
     z-index: 10;
-    animation: taskEditFirst 0.5s forwards;
 }
 
-@keyframes taskEditFirst {
-    0% {
-        opacity: 0;
-        bottom: 0%;
-    }
 
-    100% {
-        opacity: 1;
-        bottom: -80%;
-    }
-}
 
 .tasks::-webkit-scrollbar {
     width: 4px;
