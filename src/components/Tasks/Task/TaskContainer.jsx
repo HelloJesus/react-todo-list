@@ -2,6 +2,7 @@ import { useEffect, useState } from "react"
 import "./task.css"
 import Task from "./Task"
 import axios from "axios"
+import { useRef } from "react"
 
 
 const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
@@ -9,7 +10,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     let [edit, setEdit] = useState(false)
     let [longTouch, setLongTouch] = useState(false)
     // let clickHoldTimer = null
-    let touchTime = null
+    let touchTime = useRef(null)
 
     // const setTimer = () => {
     //     clickHoldTimer = setTimeout(() => {
@@ -26,13 +27,12 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
             setEdit(true)
             setLongTouch(false)
         } else if (evt.target.id === 'taskDelete') {
-            console.log(1)
+            // other action
         } else {
-            console.log(evt)
-            window.removeEventListener("click", clickOut)
+            console.log('click')
+            window.removeEventListener("touchstart", clickOut)
             setLongTouch(false)
         }
-
     }
 
     const showMenuTask = () => {
@@ -42,7 +42,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
             if (((new Date().getTime()) - touchTime) < 500) {
                 touchTime = 0
                 setLongTouch(true)
-                setTimeout(() => { window.addEventListener("click", clickOut) }, 100)
+                setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
             } else {
                 touchTime = new Date().getTime();
             }
