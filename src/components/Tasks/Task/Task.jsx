@@ -20,8 +20,8 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
             : <>
                 {longTouch
                     ? (<div className="task__edit" >
-                        <p id="taskEdit">Изменить</p>
-                        <p id="taskDelete" >Удалить</p>
+                        <p onClick={() => setEdit(true)} id="taskEdit">Изменить</p>
+                        <p onClick={() => deleteTask(item.id)} id="taskDelete" >Удалить</p>
                     </div>)
                     : ""}
                 <label className="info-task__checkbox">
