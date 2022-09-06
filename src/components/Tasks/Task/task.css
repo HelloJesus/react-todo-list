@@ -62,14 +62,14 @@
     /* animation: taskEdit 0.5s forwards; */
 }
 
-.task__edit--show {
+.task__edit.visible {
     /* display: flex; */
     visibility: visible;
     opacity: 1;
     bottom: 90%;
 }
 
-.task__edit--none {
+.task__edit.hidden {
     visibility: hidden;
     opacity: 0;
     bottom: 0%;
@@ -195,7 +195,7 @@ input[type="checkbox"]+span {
 
 @media screen and (max-width: 680px) {
     .task input {
-        font-size: 14px;
+        font-size: 16px;
     }
 
     .task__info {

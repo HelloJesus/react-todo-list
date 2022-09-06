@@ -6,7 +6,7 @@ import "./task.css"
 import InputEdit from "../../InputEdit/InputEdit"
 
 
-const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, longTouch, showMenuTask, withEmpty }) => {
+const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, menuTask, showMenuTask, withEmpty }) => {
 
     return < li className={edit ? "task task--bg" : "task"}>
         {edit
@@ -15,7 +15,7 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
                 valueProps={item.text}
                 item={item} />
             : <>
-                <div className={longTouch ? "task__edit task__edit--show" : "task__edit task__edit--none"}>
+                <div className={menuTask ? "task__edit visible" : "task__edit hidden"}>
                     <p onTouchEnd={(evt) => {
                         setEdit(true)
                         evt.preventDefault()

@@ -8,26 +8,15 @@ import { useRef } from "react"
 const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     let [isChecked, setIsChecked] = useState(item.isCompleted)
     let [edit, setEdit] = useState(false)
-    let [longTouch, setLongTouch] = useState(false)
-    // let clickHoldTimer = null
+    let [menuTask, setMenuTask] = useState(false)
     let touchTime = useRef(null)
 
-    // const setTimer = () => {
-    //     clickHoldTimer = setTimeout(() => {
-    //         setLongTouch(true)
-    //     }, 500);
-    // }
-
-    // const clearTimer = () => {
-    //     clearTimeout(clickHoldTimer);
-    // }
-
     const clickOut = (evt) => {
-        // if (evt.target.id !== 'taskEdit' && evt.target.id !== 'taskDelete') {
-        //     console.log(evt)
-        //     window.removeEventListener("touchstart", clickOut)
-        //     setLongTouch(false)
-        // }
+        if (evt.target.id !== 'taskEdit' && evt.target.id !== 'taskDelete') {
+            console.log(evt)
+            window.removeEventListener("touchstart", clickOut)
+            setMenuTask(false)
+        }
     }
 
     const showMenuTask = (evt) => {
@@ -36,7 +25,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
         } else {
             if (((new Date().getTime()) - touchTime) < 500) {
                 touchTime = 0
-                setLongTouch(true)
+                setMenuTask(true)
                 setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
                 // console.log(evt)
             } else {
@@ -44,12 +33,6 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
             }
         }
     }
-    // useEffect(() => {
-    //     window.addEventListener("touchstart", clickOut)
-    //     return () => {
-    //         window.removeEventListener("touchstart", clickOut)
-    //     }
-    // }, [])
 
     useEffect(() => {
         setIsChecked(item.isCompleted)
@@ -65,7 +48,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
                 return
             }
         }
-        setLongTouch(false)
+        setMenuTask(false)
         axios.patch("https://react-todolist-heroku.herokuapp.com/tasks/" + id, {
             text: text,
             isCompleted: isCompleted
@@ -82,7 +65,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     }
 
     const deleteTask = (id) => {
-        setLongTouch(false)
+        setMenuTask(false)
         axios.delete("https://react-todolist-heroku.herokuapp.com/tasks/" + id).then(() => {
             setRemoveTask(id, item.list)
         }).catch(() => {
@@ -112,10 +95,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
         setEdit={setEdit}
         isChecked={isChecked}
         setCheckedTask={setCheckedTask}
-        // setTimer={setTimer}
-        // clearTimer={clearTimer}
-        longTouch={longTouch}
-        setLongTouch={setLongTouch}
+        menuTask={menuTask}
         showMenuTask={showMenuTask}
         withEmpty={withEmpty} />
 }
