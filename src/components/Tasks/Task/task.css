@@ -57,12 +57,33 @@
     background-color: #323232;
     color: #fff;
     border-radius: 5px;
-    z-index: 10;
-
-    animation: taskEdit 0.5s forwards;
+    /* z-index: 10; */
+    transition: all 0.5s ease;
+    /* animation: taskEdit 0.5s forwards; */
 }
 
-@keyframes taskEdit {
+.task__edit--show {
+    /* display: flex; */
+    visibility: visible;
+    opacity: 1;
+    bottom: 90%;
+}
+
+.task__edit--none {
+    visibility: hidden;
+    opacity: 0;
+    bottom: 0%;
+}
+
+.display--on {
+    display: flex;
+}
+
+.display--off {
+    display: none;
+}
+
+/* @keyframes taskEdit {
     0% {
         opacity: 0;
         bottom: 0%;
@@ -73,7 +94,7 @@
         bottom: 90%;
 
     }
-}
+} */
 
 .task__edit p:first-child {
     margin-right: 15px;

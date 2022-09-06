@@ -7,9 +7,8 @@ import InputEdit from "../../InputEdit/InputEdit"
 
 
 const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheckedTask, longTouch, showMenuTask, withEmpty }) => {
-    const stopprop = (evt) => {
-
-        setEdit(true)
+    const onTransitionEnd = (evt) => {
+        console.log(true)
     }
     return < li className={edit ? "task task--bg" : "task"}>
         {edit
@@ -18,19 +17,18 @@ const Task = ({ item, deleteTask, updateTask, edit, setEdit, isChecked, setCheck
                 valueProps={item.text}
                 item={item} />
             : <>
-                {longTouch
-                    ? (<div className="task__edit" >
-                        <p onClick={() => setEdit(true)} id="taskEdit">Изменить</p>
-                        <p onClick={() => deleteTask(item.id)} id="taskDelete" >Удалить</p>
-                    </div>)
-                    : ""}
+                <div className={longTouch ? "task__edit task__edit--show" : "task__edit task__edit--none"}>
+                    <p onClick={() => setEdit(true)} id="taskEdit">Изменить</p>
+                    <p onClick={() => deleteTask(item.id)} id="taskDelete" >Удалить</p>
+                </div>
+
                 <label className="info-task__checkbox">
                     {isChecked ? <img src={isSuccess} alt="isSuccess" /> : ""}
                     <input id="checkbox" type="checkbox" checked={isChecked || ""} onChange={(evt) => setCheckedTask(evt)} />
                     <span></span>
                 </label>
                 <div className="flex"
-                    onTouchStart={showMenuTask}>
+                    onClick={showMenuTask}>
                     <div className="task__info info-task">
                         {isChecked
                             ? <p className="info-task__text" style={{ textDecoration: "line-through", color: "#EB5757" }}>{item.text}</p>

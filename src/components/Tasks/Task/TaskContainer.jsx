@@ -24,19 +24,20 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
 
     const clickOut = (evt) => {
         if (evt.target.id !== 'taskEdit' && evt.target.id !== 'taskDelete') {
-            window.removeEventListener("touchstart", clickOut)
+            window.removeEventListener("click", clickOut)
             setLongTouch(false)
         }
     }
 
-    const showMenuTask = () => {
+    const showMenuTask = (evt) => {
         if (touchTime === 0) {
             touchTime = new Date().getTime();
         } else {
             if (((new Date().getTime()) - touchTime) < 500) {
                 touchTime = 0
                 setLongTouch(true)
-                setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
+                setTimeout(() => { window.addEventListener("click", clickOut) }, 100)
+                console.log(evt)
             } else {
                 touchTime = new Date().getTime();
             }
@@ -63,7 +64,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
                 return
             }
         }
-
+        setLongTouch(false)
         axios.patch("https://react-todolist-heroku.herokuapp.com/tasks/" + id, {
             text: text,
             isCompleted: isCompleted
