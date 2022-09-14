@@ -3,7 +3,7 @@ import iconDelete from "../../../images/iconDelete.png"
 import iconEdit from "../../../images/iconEdit.svg"
 import "./list.css"
 
-const List = ({ item, edit, updateList, deleteList, onEdit, onNavigate, touchMove, touchEnd, active, title }) => {
+const List = ({ item, edit, updateList, deleteList, onEdit, onNavigate, active, title }) => {
     const tasksLength = item.tasks.filter(task => task.isCompleted === false).length
     const tasksLengthSpan = tasksLength === 0 ? '' : `(${tasksLength})`
 
@@ -16,7 +16,7 @@ const List = ({ item, edit, updateList, deleteList, onEdit, onNavigate, touchMov
                     item={item} />
             </li> :
             <li className="list" style={active ? { backgroundColor: "rgb(103 194 221)" } : {}}
-                onClick={onNavigate} onTouchMove={touchMove} onTouchEnd={touchEnd}>
+                onClick={onNavigate}>
                 <div className="list__info info-list">
                     <div className="info-list__color" style={{ backgroundColor: item.color.hex }}></div>
                     <h5>{title}</h5>
