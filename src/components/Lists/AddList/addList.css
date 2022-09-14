@@ -75,6 +75,10 @@
 }
 
 @media screen and (max-width: 535px) {
+    .btn-container {
+        margin-top: 30px;
+    }
+
     .btn-newList {
         width: auto;
         color: #0947749f

@@ -1,24 +1,38 @@
+import { useEffect } from "react"
+import { useRef } from "react"
 import { useState } from "react"
 import AddList from "./AddList/AddList"
 import ListContainer from "./List/ListContainer"
 import "./lists.css"
 
-const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNavigate, navigate }) => {
+const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNavigate, navigate, activeListId }) => {
     let [isMobile, setIsMobile] = useState(false)
     let [activeList, setActiveList] = useState(null)
+    const scrollRef = useRef(null)
+
+    // При обновлении страницы запоминать id элемента в списке, чтобы выделять его цветом
+    useEffect(() => {
+        if (activeListId) setActiveList(activeListId.id)
+    }, [activeListId])
+
+    // Создаем функцию, которая будет автоматически скроллить нас до нового, добавленного элемента в список
+    const scrollToRef = () => {
+        scrollRef.current.scrollTo(0, scrollRef.current.scrollHeight)
+    }
 
     const handleSumbit = () => {
+        setActiveList(false)
         navigate('/')
         setIsMobile(false)
-        setActiveList(false)
     }
 
     return <><div className={isMobile ? "todo__lists lists-todo__active" : "todo__lists"}>
         <div className="lists-todo__inner">
             <div className="lists-all" onClick={handleSumbit}>All Tasks</div>
-            <ul className="lists">
-                {lists && lists.map((item) => {
-                    return <ListContainer key={item.id}
+            <ul className="lists" ref={scrollRef}>
+                {lists && lists.map((item, index) => {
+                    return <ListContainer
+                        key={item.id}
                         item={item}
                         setRemoveList={setRemoveList}
                         setNavigate={setNavigate}
@@ -29,7 +43,7 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
                     />
                 })}
             </ul>
-            <AddList lists={lists} colors={colors} setAddList={setAddList} />
+            <AddList lists={lists} colors={colors} setAddList={setAddList} scrollToRef={scrollToRef} />
         </div>
     </div>
         <div onClick={() => setIsMobile(!isMobile)} className={isMobile ? "todo__lists-toggler toggle" : "todo__lists-toggler"}>

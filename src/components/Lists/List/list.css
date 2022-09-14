@@ -68,13 +68,18 @@ span {
 .list__icons {
     display: flex;
     opacity: 0;
+    visibility: hidden;
 }
 
-
+.list__icons--active {
+    opacity: 1;
+    visibility: visible;
+}
 
 @media (hover: hover) {
     .list:hover .list__icons {
         opacity: 1;
+        visibility: visible;
     }
 }
 
@@ -102,11 +107,11 @@ span {
 
 @media screen and (max-width: 800px) {
     .info-list h5 {
-        font-size: 16px;
+        font-size: 24px;
     }
 
     .info-list span {
-        font-size: 14px;
+        font-size: 18px;
     }
 }
 
@@ -127,6 +132,11 @@ span {
 
     .list__icon:nth-child(2) {
         margin-left: 15px;
+    }
+
+    .list input {
+        height: 35px;
+        font-size: 16px;
     }
 }
 

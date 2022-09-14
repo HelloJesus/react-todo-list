@@ -1,11 +1,9 @@
 import { useState } from "react"
 import TaskContainer from "./Task/TaskContainer"
 import "./tasks.css"
-import axios from "axios"
+import { API } from "../../api/api"
 
-const api = "https://react-todolist-heroku.herokuapp.com/tasks"
-
-const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) => {
+const Tasks = ({ items, setAddTask, setRemoveTask, setUpdateTask, withEmpty }) => {
     let [valueTask, setValueTask] = useState('')
 
     let title = ''
@@ -13,27 +11,23 @@ const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) =
     const list = items.lists
 
     const addTask = () => {
-        const objTask = {
-            listId: list.id,
-            text: valueTask,
-            isCompleted: false
-        }
-
-        axios.post(api, objTask).then(({ data }) => {
+        API.addTask(list.id, valueTask).then(({ data }) => {
             setAddTask(data)
             setValueTask('')
+        }).catch(error => {
+            alert(`Не удалось добавить задачу: ${error.message}`)
         })
     }
 
     return <div className="tasks__list" >
-        {!withEmpty && <>
-            <h2 style={{ color: list.color.hex }}>{list.title}</h2>
+        {!withEmpty ? <>
+            <h2 className="tasks__list-title" style={{ color: list.color.hex }}>{list.title}</h2>
             <div className="tasks__list-input">
                 <input className="" type="text" value={valueTask}
                     onChange={e => setValueTask(e.target.value)} placeholder="Add a new task"></input>
                 {valueTask ? <button onClick={() => addTask()}>Добавить</button> : ''}
             </div>
-        </>
+        </> : <h2 className="tasks-title">All Tasks</h2>
         }
         <ul className="tasks">
             {items.tasks && items.tasks.map((task) => {
@@ -44,7 +38,8 @@ const Tasks = ({ setAddTask, setRemoveTask, setUpdateTask, withEmpty, items }) =
                     title = list.title
                     color = list.color.hex
                 }
-                return <TaskContainer key={task.id}
+                return <TaskContainer
+                    key={task.id}
                     item={{ ...task, listTitle: title, color: color, list: items.list }}
                     withEmpty={withEmpty}
                     setRemoveTask={setRemoveTask}

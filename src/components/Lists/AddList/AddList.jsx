@@ -1,10 +1,10 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import "./addList.css"
 import imgClose from "../../../images/icons8-cancel.svg"
+import { API } from "../../../api/api"
 
 
-const AddList = ({ lists, colors, setAddList }) => {
+const AddList = ({ lists, colors, setAddList, scrollToRef }) => {
     let [visibleBtn, setVisibleBtn] = useState(false)
     let [activeColor, setActiveColor] = useState(null)
     let [inputValue, setInputValue] = useState('')
@@ -28,19 +28,20 @@ const AddList = ({ lists, colors, setAddList }) => {
 
     const addList = () => {
         setLoading(true)
-        axios.post("https://react-todolist-heroku.herokuapp.com/lists", {
-            title: inputValue,
-            colorId: activeColor
-        }).then(({ data }) => {
-            const color = colors.filter(c => c.id === activeColor)[0]
-            const listObj = { ...data, tasks: [], color }
-            setAddList(listObj)
-            onClose()
-        }).catch(() => {
-            alert('Ошибка при добавлении списка!')
-        }).finally(() => {
-            setLoading(false)
-        })
+
+        API.addList(inputValue, activeColor)
+            .then(({ data }) => {
+                const color = colors.filter(c => c.id === activeColor)[0]
+                setAddList({ ...data, tasks: [], color })
+                onClose()
+            }).catch(() => {
+                alert('Ошибка при добавлении списка!')
+            }).finally(() => {
+                setLoading(false)
+                //Оборачиваем наш автоматический скролл setTimeout для того,
+                //чтобы данные успели изменится
+                setTimeout(() => { scrollToRef() })
+            })
     }
 
     return <div className="btn-container">
@@ -51,7 +52,7 @@ const AddList = ({ lists, colors, setAddList }) => {
             (<div className="btn-addList">
                 <img src={imgClose} onClick={() => setVisibleBtn(false)} alt="Close" />
                 <input type="text" value={inputValue} onChange={(e) => onCkeckInput(e.target.value)} />
-                {colors.map((item, index) =>
+                {colors && colors.map((item, index) =>
                     <svg key={index} onClick={() => setActiveColor(item.id)} height="30" width="30">
                         <circle stroke={item.id === activeColor ? item.hex + '90' : ''} cx="15" cy="15" r="10" strokeWidth="5" fill={item.hex} />
                     </svg>)}

@@ -1,32 +1,28 @@
 import { useState } from "react"
-import axios from "axios"
 import List from "./List"
-
+import { API } from "../../../api/api"
 
 const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, setIsMobile, active }) => {
     let [edit, setEdit] = useState(false)
     let [title, setTitle] = useState(item.title)
 
-    const handleEdit = (evt) => {
+    const onEdit = (evt) => {
         evt.stopPropagation()
         setEdit(!edit)
     }
 
-    const handleSubmit = () => {
-        // evt.stopPropagation();
-        // alert("Есть клик!")
+    const onNavigate = () => {
         setNavigate(item)
-        setIsMobile(false)
+        // setIsMobile(false)
         setActiveList(item.id)
-        // console.log(evt.nativeEvent)
     }
 
     const deleteList = (evt, id) => {
         evt.stopPropagation()
-        axios.delete("https://react-todolist-heroku.herokuapp.com/lists/" + id).then(() => {
+        API.deleteList(id).then(() => {
             setRemoveList(id)
-        }).catch(() => {
-            alert('Не удалось удалить категорию')
+        }).catch(error => {
+            alert(`Не удалось удалить категорию: ${error.message}`)
         })
     }
 
@@ -41,15 +37,12 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
                 return
             }
         }
-
         const prevTitle = item.title
         setTitle(title)
-        axios.patch("https://react-todolist-heroku.herokuapp.com/lists/" + id, {
-            title: title,
-        }).then(() => {
+        API.updateList(id, title).then(() => {
             setUpdateLists(title, id)
-        }).catch(() => {
-            alert('Не удалось обновить категорию')
+        }).catch(error => {
+            alert(`Не удалось обновить категорию: ${error.message}`)
             setTitle(prevTitle)
         })
         setEdit(false)
@@ -61,8 +54,8 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
         setEdit={setEdit}
         updateList={updateList}
         deleteList={deleteList}
-        handleEdit={handleEdit}
-        handleSubmit={handleSubmit}
+        onEdit={onEdit}
+        onNavigate={onNavigate}
         active={active}
         title={title}
     />

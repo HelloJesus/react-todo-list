@@ -3,12 +3,18 @@
 }
 
 
-.tasks__list h2 {
+.tasks__list-title {
     line-height: 1;
     font-size: 26px;
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+}
+
+.tasks-title {
+    margin-left: 30px;
+    margin-bottom: 20px;
+    color: #ffffff;
 }
 
 .tasks__list-input {
@@ -70,8 +76,12 @@
     bottom: -65%;
 }
 
+.tasks li:first-child .visible {
+    bottom: -68%;
+}
+
 .tasks li:first-child .task__edit {
-    z-index: 10;
+    z-index: 5;
 }
 
 
@@ -129,5 +139,11 @@
 
     .tasks {
         height: auto;
+    }
+
+    .tasks__title {
+        margin-left: 10px;
+        margin-bottom: 10px;
+        color: #ffffff;
     }
 }

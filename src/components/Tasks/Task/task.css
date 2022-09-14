@@ -1,7 +1,6 @@
 .task {
     display: flex;
     position: relative;
-    /* justify-content: space-between; */
     align-items: center;
     height: auto;
     padding: 5px 5px 5px 5px;
@@ -33,7 +32,7 @@
 .task input {
     height: 100%;
     width: 100%;
-    padding: 2px 5px 0 5px;
+    padding: 2px 5px 2px 5px;
     margin-right: 10px;
     border: 1px solid #bdbdbd;
     border-radius: 5px;
@@ -53,17 +52,15 @@
     position: absolute;
     padding: 5px 10px 5px 10px;
     left: 50%;
+    bottom: 0;
     transform: translate(-50%);
     background-color: #323232;
     color: #fff;
     border-radius: 5px;
-    /* z-index: 10; */
     transition: all 0.5s ease;
-    /* animation: taskEdit 0.5s forwards; */
 }
 
 .task__edit.visible {
-    /* display: flex; */
     visibility: visible;
     opacity: 1;
     bottom: 90%;
@@ -72,7 +69,7 @@
 .task__edit.hidden {
     visibility: hidden;
     opacity: 0;
-    bottom: 0%;
+    /* bottom: 0%; */
 }
 
 .display--on {
@@ -82,19 +79,6 @@
 .display--off {
     display: none;
 }
-
-/* @keyframes taskEdit {
-    0% {
-        opacity: 0;
-        bottom: 0%;
-    }
-
-    100% {
-        opacity: 1;
-        bottom: 90%;
-
-    }
-} */
 
 .task__edit p:first-child {
     margin-right: 15px;
@@ -137,7 +121,6 @@ input[type="checkbox"]+span {
     z-index: 5;
 }
 
-
 .info-task__text {
     margin-left: 10px;
     word-break: break-word
@@ -148,8 +131,7 @@ input[type="checkbox"]+span {
 }
 
 .task__icons img {
-    pointer-events: auto;
-    opacity: 1;
+    visibility: hidden;
 }
 
 @media (hover:hover) {
@@ -160,6 +142,7 @@ input[type="checkbox"]+span {
 
     .task:hover .task__icons img {
         pointer-events: auto;
+        visibility: visible;
         opacity: 1;
     }
 }
@@ -168,23 +151,6 @@ input[type="checkbox"]+span {
     width: 25px;
     height: 25px;
 }
-
-/* .btn--edit {
-    display: block;
-    height: 30px;
-    border: 1px solid #d8d216;
-    box-shadow: 0 0 5px #e8e118be;
-    color: #dacf00;
-} */
-
-/* .btn--edit:hover {
-    border: 1px solid #d5a815;
-    border-radius: 5px;
-    background-color: #ebd800;
-    color: #ffffff;
-} */
-
-
 
 @media screen and (max-width: 790px) {
     .task__info {
