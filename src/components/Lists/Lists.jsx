@@ -31,6 +31,7 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
         setIsMobile(!isMobile)
         document.body.style.overflowY = isMobile ? "auto" : "hidden"
         document.body.style.position = "relative"
+        document.body.style.height = "100%"
     }
 
     return <><div className={isMobile ? "todo__lists lists-todo__active" : "todo__lists"}>
