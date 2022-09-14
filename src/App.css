@@ -14,12 +14,6 @@
   box-sizing: border-box;
 }
 
-body {
-  overflow: hidden;
-  height: 100%;
-  position: relative;
-}
-
 h1,
 h2,
 h3,
