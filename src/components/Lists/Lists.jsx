@@ -30,13 +30,17 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
     const onMobile = () => {
         setIsMobile(!isMobile)
         // document.body.style.overflowY = isMobile ? "auto" : "hidden"
-        // if (isMobile) {
-        //     document.body.style.overflowY = "auto"
-        //     document.body.style.height = "auto"
-        // } else {
-        //     document.body.style.overflowY = "hidden"
-        //     document.body.style.height = "100%"
-        // }
+        if (isMobile) {
+            document.body.style.overflowY = "auto"
+            document.body.style.height = "auto"
+            document.style.overflowY = "auto"
+            document.style.height = "auto"
+        } else {
+            document.body.style.overflowY = "hidden"
+            document.body.style.height = "100%"
+            document.style.overflowY = "hidden"
+            document.style.height = "100%"
+        }
 
     }
 
