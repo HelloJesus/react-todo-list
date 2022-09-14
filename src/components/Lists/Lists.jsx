@@ -29,9 +29,8 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
 
     const onMobile = () => {
         setIsMobile(!isMobile)
-        document.body.style.overflowY = isMobile ? "auto" : "hidden"
-        document.body.style.position = "relative"
-        document.body.style.height = "100%"
+        // document.body.style.overflowY = isMobile ? "auto" : "hidden"
+
     }
 
     return <><div className={isMobile ? "todo__lists lists-todo__active" : "todo__lists"}>
