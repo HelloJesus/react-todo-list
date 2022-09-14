@@ -1,5 +1,5 @@
 import { useState } from "react"
-import isSuccess from "../../images/isSuccess.svg"
+import isSuccess from "../../images/isSuccess.png"
 
 const InputEdit = (props) => {
     const { setUpdateValue, valueProps, item } = props

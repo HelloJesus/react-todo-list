@@ -1,7 +1,7 @@
 import Badge from "./Badge/Badge"
 import iconDelete from "../../../images/iconDelete.png"
 import iconEdit from "../../../images/iconEdit.svg"
-import isSuccess from "../../../images/isSuccess.svg"
+import isSuccess from "../../../images/isSuccess.png"
 import "./task.css"
 import InputEdit from "../../InputEdit/InputEdit"
 

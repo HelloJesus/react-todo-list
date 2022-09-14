@@ -1,10 +1,12 @@
 import { useState } from "react"
 import List from "./List"
 import { API } from "../../../api/api"
+import { useRef } from "react"
 
 const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setActiveList, setIsMobile, active }) => {
     let [edit, setEdit] = useState(false)
     let [title, setTitle] = useState(item.title)
+    let touchStartRef = useRef(null)
 
     const onEdit = (evt) => {
         evt.stopPropagation()
@@ -12,9 +14,23 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
     }
 
     const onNavigate = () => {
-        setNavigate(item)
-        // setIsMobile(false)
-        setActiveList(item.id)
+        if (!touchStartRef.current) {
+            setNavigate(item)
+            // setIsMobile(false)
+            setActiveList(item.id)
+        }
+    }
+
+    const touchMove = (evt) => {
+        touchStartRef.current = evt.type
+    }
+
+    const touchEnd = () => {
+        if (touchStartRef.current !== 'touchmove') {
+            setNavigate(item)
+            setActiveList(item.id)
+        }
+        touchStartRef.current = null
     }
 
     const deleteList = (evt, id) => {
@@ -56,6 +72,8 @@ const ListContainer = ({ item, setNavigate, setRemoveList, setUpdateLists, setAc
         deleteList={deleteList}
         onEdit={onEdit}
         onNavigate={onNavigate}
+        touchMove={touchMove}
+        touchEnd={touchEnd}
         active={active}
         title={title}
     />

@@ -87,7 +87,7 @@
 
     .todo__lists-toggler {
         display: block;
-        position: absolute;
+        position: fixed;
         top: 0;
         right: 0;
         padding: 5px;
