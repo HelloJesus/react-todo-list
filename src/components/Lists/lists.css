@@ -67,7 +67,7 @@
 
 @media screen and (max-width: 535px) {
     .todo__lists {
-        position: fixed;
+        position: absolute;
         right: 0;
         top: 0;
         width: 300px;
