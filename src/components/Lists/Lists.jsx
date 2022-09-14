@@ -37,7 +37,7 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
         } else {
             document.body.style.overflowY = "hidden"
             document.body.style.height = "100%"
-            document.body.style.position = "relative"
+            document.body.style.position = "fixed"
         }
 
     }
