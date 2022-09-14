@@ -67,10 +67,11 @@
 
 @media screen and (max-width: 535px) {
     .todo__lists {
-        position: absolute;
+        position: fixed;
         right: 0;
         top: 0;
         width: 300px;
+        height: 100%;
         padding: 0 10px 0 10px;
         border: none;
         background-color: rgb(255, 255, 255);
