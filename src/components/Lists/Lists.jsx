@@ -30,25 +30,25 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
     const onMobile = () => {
         setIsMobile(!isMobile)
         // document.body.style.overflowY = isMobile ? "auto" : "hidden"
+        // console.log(document.documentElement)
         if (isMobile) {
             document.body.style.overflowY = "auto"
             document.body.style.height = "auto"
-            document.style.overflowY = "auto"
-            document.style.height = "auto"
+            document.documentElement.style.overflowY = "auto"
+            document.documentElement.style.height = "auto"
         } else {
             document.body.style.overflowY = "hidden"
             document.body.style.height = "100%"
-            document.style.overflowY = "hidden"
-            document.style.height = "100%"
+            document.documentElement.style.overflowY = "hidden"
+            document.documentElement.style.height = "100%"
         }
-
     }
 
     return <><div className={isMobile ? "todo__lists lists-todo__active" : "todo__lists"}>
         <div className="lists-todo__inner">
             <div className="lists-all" onClick={handleSumbit}>All Tasks</div>
             <ul className="lists" ref={scrollRef}>
-                {lists && lists.map((item, index) => {
+                {lists && lists.map(item => {
                     return <ListContainer
                         key={item.id}
                         item={item}
