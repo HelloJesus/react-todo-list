@@ -24,7 +24,7 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
         setActiveList(false)
         navigate('/')
         setIsMobile(false)
-        document.body.style.overflowY = "scroll"
+        // document.body.style.overflowY = "scroll"
     }
 
     const onMobile = () => {
