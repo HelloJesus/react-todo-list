@@ -44,6 +44,9 @@ const Lists = ({ lists, colors, setAddList, setRemoveList, setUpdateLists, setNa
         // }
     }
 
+    // попробовтаь повесить touchmove или touchstart на todo__lists + stopPropagation
+    // чтобы при касании на белый нижний фон меню не срабатывало касание задника
+
     return <><div className={isMobile ? "todo__lists lists-todo__active" : "todo__lists"}>
         <div className="lists-todo__inner">
             <div className="lists-all" onClick={handleSumbit}>All Tasks</div>

@@ -14,7 +14,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
     //Создаем функцию, которая отслеживает наш клик, когда мобильное меню Task задействовано 
     const clickOut = (evt) => {
         if (evt.target.id !== 'taskEdit' && evt.target.id !== 'taskDelete') {
-            window.removeEventListener("touchstart", clickOut)
+            // window.removeEventListener("touchstart", clickOut)
             setMenuTask(false)
         }
     }
@@ -27,7 +27,7 @@ const TaskContainer = ({ item, withEmpty, setRemoveTask, setUpdateTask }) => {
                 touchTimeRef = 0
                 setMenuTask(true)
                 //оборачиваем прослушку в setTimeout, чтобы успеть загрузить меню
-                setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
+                // setTimeout(() => { window.addEventListener("touchstart", clickOut) }, 100)
             } else {
                 touchTimeRef = new Date().getTime();
             }
